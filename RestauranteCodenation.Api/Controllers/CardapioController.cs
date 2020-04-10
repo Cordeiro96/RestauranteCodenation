@@ -11,47 +11,47 @@ namespace RestauranteCodenation.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AgendaController : ControllerBase
+    public class CardapioController : ControllerBase
     {
-        private readonly AgendaRepositorio _repo;
-        public AgendaController()
+        private readonly CardapioRepositorio _repo;
+
+        public CardapioController()
         {
-            _repo = new AgendaRepositorio();
+            _repo = new CardapioRepositorio();
         }
 
-        // GET: api/Agenda
         [HttpGet]
-        public IEnumerable<Agenda> Get()
+        public IEnumerable<Cardapio> Get()
         {
             return _repo.SelecionarTodos();
         }
 
-        // GET: api/Agenda/5
+        // GET: api/Cardapio/5
         [HttpGet("{id}")]
-        public Agenda Get(int id)
+        public Cardapio Get(int id)
         {
             return _repo.SelecionarPorId(id);
         }
 
-        // POST: api/Agenda
+        // POST: api/Cardapio
         [HttpPost]
-        public Agenda Post([FromBody] Agenda agenda)
+        public Cardapio Post([FromBody] Cardapio cardapio)
         {
-            _repo.Incluir(agenda);
-            return agenda;
+            _repo.Incluir(cardapio);
+            return cardapio;
         }
 
-        // PUT: api/Agenda/5
-        [HttpPut]
-        public Agenda Put([FromBody] Agenda agenda)
+        // PUT: api/Cardapio/5
+        [HttpPut("{id}")]
+        public Cardapio Put([FromBody] Cardapio cardapio)
         {
-            _repo.Alterar(agenda);
-            return agenda;
+            _repo.Alterar(cardapio);
+            return cardapio;
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public List<Agenda> Delete(int id)
+        public List<Cardapio> Delete(int id)
         {
             _repo.Excluir(id);
             return _repo.SelecionarTodos();

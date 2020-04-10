@@ -6,52 +6,53 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestauranteCodenation.Data.Repositorio;
 using RestauranteCodenation.Domain;
+using RestauranteCodenation.Domain.Repositorio;
 
 namespace RestauranteCodenation.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AgendaController : ControllerBase
+    public class TipoPratoController : ControllerBase
     {
-        private readonly AgendaRepositorio _repo;
-        public AgendaController()
+        private readonly ITipoPratoRepositorio _repo;
+        public TipoPratoController(ITipoPratoRepositorio repo)
         {
-            _repo = new AgendaRepositorio();
+            _repo = repo;
         }
 
-        // GET: api/Agenda
+        // GET: api/TipoPrato
         [HttpGet]
-        public IEnumerable<Agenda> Get()
+        public IEnumerable<TipoPrato> Get()
         {
             return _repo.SelecionarTodos();
         }
 
-        // GET: api/Agenda/5
+        // GET: api/TipoPrato/5
         [HttpGet("{id}")]
-        public Agenda Get(int id)
+        public TipoPrato Get(int id)
         {
             return _repo.SelecionarPorId(id);
         }
 
-        // POST: api/Agenda
+        // POST: api/TipoPrato
         [HttpPost]
-        public Agenda Post([FromBody] Agenda agenda)
+        public TipoPrato Post([FromBody] TipoPrato tipoPrato)
         {
-            _repo.Incluir(agenda);
-            return agenda;
+            _repo.Incluir(tipoPrato);
+            return tipoPrato;
         }
 
-        // PUT: api/Agenda/5
-        [HttpPut]
-        public Agenda Put([FromBody] Agenda agenda)
+        // PUT: api/TipoPrato/5
+        [HttpPut("{id}")]
+        public TipoPrato Put([FromBody] TipoPrato tipoPrato)
         {
-            _repo.Alterar(agenda);
-            return agenda;
+            _repo.Alterar(tipoPrato);
+            return tipoPrato;
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public List<Agenda> Delete(int id)
+        public List<TipoPrato> Delete(int id)
         {
             _repo.Excluir(id);
             return _repo.SelecionarTodos();

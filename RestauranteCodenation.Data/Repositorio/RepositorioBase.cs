@@ -8,7 +8,11 @@ using System.Text;
 namespace RestauranteCodenation.Data.Repositorio
 {
     //Determinando que para entrar no repositório base, tem que ser uma classe e implementar a classe IEntity
-    public class RepositorioBase<T> where T : class, IEntity
+
+    //public class RepositorioBase<T> where T : class, IEntity -> Declaração da classe sem injeção de dependência
+
+    //declaração da classe com injeção de dependência
+    public class RepositorioBase<T> : IRepositorioBase<T> where T : class, IEntity
     {
         protected readonly Contexto _contexto;
         public RepositorioBase()
@@ -43,6 +47,11 @@ namespace RestauranteCodenation.Data.Repositorio
             var entity = SelecionarPorId(id);
             _contexto.Set<T>().Remove(entity);
             _contexto.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            _contexto.Dispose();
         }
     }
 }

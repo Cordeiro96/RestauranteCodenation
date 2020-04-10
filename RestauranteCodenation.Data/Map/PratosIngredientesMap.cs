@@ -22,6 +22,10 @@ namespace RestauranteCodenation.Data.Map
             builder.HasOne(p => p.Prato)
                 .WithMany(pi => pi.PratosIngredientes)
                 .HasForeignKey(p => p.IdPrato);
+
+            //Setando como autoincremento
+            builder.Property(x => x.Id)
+                .UseIdentityColumn();
         }
     }
 }

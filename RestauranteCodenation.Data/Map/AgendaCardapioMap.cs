@@ -22,6 +22,9 @@ namespace RestauranteCodenation.Data.Map
             builder.HasOne(c => c.Cardapio)
                 .WithMany(ac => ac.AgendaCardapios)
                 .HasForeignKey(c => c.IdCardapio);
+
+            builder.Property(x => x.Id)
+                .UseIdentityColumn();
         }
     }
 }
