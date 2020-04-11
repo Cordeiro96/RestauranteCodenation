@@ -33,6 +33,12 @@ namespace RestauranteCodenation.Api
 
             services.AddScoped(typeof(IRepositorioBase<>), typeof(RepositorioBase<>));
             services.AddScoped<ITipoPratoRepositorio, TipoPratoRepositorio>();
+            services.AddScoped<IAgendaRepositorio, AgendaRepositorio>();
+            services.AddScoped<IIngredienteRepositorio, IngredienteRepositorio>();
+            services.AddScoped<IPratoRepositorio, PratoRepositorio>();
+            services.AddScoped<ICardapioRepositorio, CardapioRepositorio>();
+            services.AddScoped<IPratosIngredientesRepositorio, PratosIngredientesRepositorio>();
+            services.AddScoped<IAgendaCardapioRepositorio, AgendaCardapioRepositorio>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

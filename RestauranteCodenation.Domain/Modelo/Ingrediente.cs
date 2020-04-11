@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace RestauranteCodenation.Domain
 {
-    public class Ingredinte : IEntity
+    public class Ingrediente : IEntity
     {
         public int Id { get; set; }
         public string Nome { get; set; }

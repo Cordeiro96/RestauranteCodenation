@@ -11,7 +11,7 @@ namespace RestauranteCodenation.Domain
         public Prato Prato { get; set; }
 
         public int IdIngrediente { get; set; }
-        public Ingredinte Ingredinte { get; set; }
+        public Ingrediente Ingredinte { get; set; }
 
         public int Id { get; set; }
     }

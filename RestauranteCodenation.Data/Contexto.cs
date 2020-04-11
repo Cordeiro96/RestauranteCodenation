@@ -9,7 +9,7 @@ namespace RestauranteCodenation.Data
     {
         public DbSet<Cardapio> Cardapio { get; set; }
         public DbSet<Agenda> Agenda { get; set; }
-        public DbSet<Ingredinte> Ingredinte { get; set; }
+        public DbSet<Ingrediente> Ingredinte { get; set; }
         public DbSet<Prato> Prato { get; set; }
         public DbSet<TipoPrato> TipoPrato { get; set; }
         public DbSet<PratosIngredientes> PratosIngredientes { get; set; }

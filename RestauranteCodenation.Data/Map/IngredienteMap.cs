@@ -7,10 +7,10 @@ using System.Text;
 
 namespace RestauranteCodenation.Data.Map
 {
-    public class IngredienteMap : IEntityTypeConfiguration<Ingredinte>
+    public class IngredienteMap : IEntityTypeConfiguration<Ingrediente>
     {
 
-        void IEntityTypeConfiguration<Ingredinte>.Configure(EntityTypeBuilder<Ingredinte> builder)
+        void IEntityTypeConfiguration<Ingrediente>.Configure(EntityTypeBuilder<Ingrediente> builder)
         {
             builder.ToTable("Ingrediente");
 
